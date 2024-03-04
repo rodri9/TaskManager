@@ -6,7 +6,9 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -46,17 +48,18 @@ fun Content(modifier: Modifier = Modifier) {
     val image = painterResource(id = R.drawable.ic_task_completed)
     Column(
         verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier
+            .fillMaxWidth()
+            .fillMaxHeight()
     ) {
         Image(
             painter = image,
-            contentDescription = null,
-            contentScale = ContentScale.None
+            contentDescription = null
         )
         Text(
             text = stringResource(R.string.all_tasks_completed_text),
             fontWeight = FontWeight.Bold,
-            textAlign = TextAlign.Center,
             modifier = Modifier
                 .padding(
                     top = 24.dp,
@@ -65,7 +68,6 @@ fun Content(modifier: Modifier = Modifier) {
         )
         Text(
             text = stringResource(R.string.nice_work_text),
-            textAlign = TextAlign.Center,
             fontSize = 16.sp
         )
     }
